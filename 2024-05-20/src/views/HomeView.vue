@@ -1,15 +1,17 @@
 <template>
+  <div>Ana sayfamiz</div>
   <div>
-    <AppBar />
+    <v-btn @click="onClick" class="mt-4">TODO SAYFASI</v-btn>
   </div>
 </template>
 
 <script>
-import AppBar from "../components/AppBar.vue";
 export default {
   name: "HomeView",
-  components: {
-    AppBar,
+  methods: {
+    onClick() {
+      this.$router.push("/todo");
+    },
   },
 };
 </script>

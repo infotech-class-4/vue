@@ -32,13 +32,14 @@
 export default {
   methods: {
     onLogout() {
-      this.$store.commit("setUser", undefined);
+      this.$store.commit("userStore/setUser", undefined);
       window.localStorage.clear();
+      this.$router.push("/login");
     },
   },
   computed: {
     username() {
-      const userData = this.$store.getters.getUser;
+      const userData = this.$store.getters["userStore/getUser"];
       if (!userData) return ""; // early return pattern
 
       return userData.name + " " + userData.surname;

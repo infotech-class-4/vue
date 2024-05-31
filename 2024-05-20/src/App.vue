@@ -1,4 +1,5 @@
 <template>
+  <AppBar class="mb-16" />
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/login">Login</router-link>
@@ -6,17 +7,28 @@
   <router-view />
 </template>
 <script>
+import AppBar from "./components/AppBar.vue";
 export default {
+  components: {
+    AppBar,
+  },
   created() {
     console.log("created calisti");
 
     // const user = this.$store.getters.getUser;
     // if (!user) this.$router.push("/login");
 
-    this.$store.dispatch("checkMe");
+    this.$store.dispatch("userStore/checkMe");
   },
   mounted() {
     console.log("mounted calisti");
+
+    const user = this.$store.getters["userStore/getUser"];
+
+    if (!user) {
+      console.log("mounted", user);
+      this.$router.push("/login");
+    }
   },
   beforeCreate() {
     console.log("before created calisti");

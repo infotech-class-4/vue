@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     handleLogin() {
-      this.$store.dispatch("login", {
+      this.$store.dispatch("userStore/login", {
         username: this.username,
         password: this.password,
       });
