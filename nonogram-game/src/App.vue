@@ -1,25 +1,9 @@
 <template>
-  <Cell :status="false" />
+  <GameHolder></GameHolder>
 </template>
 
 <script setup>
-import Cell from "./components/Cell.vue";
-import { usePuzzle } from "./store/puzzle";
-
-const { puzzle } = usePuzzle();
-
-// export default {
-// components: {
-
-// }
-//   data() {
-//     return {}
-//   },
-//   methods:
-//   {
-
-//   }
-// }
+import GameHolder from "./components/GameHolder.vue";
 </script>
 
 <style scoped>

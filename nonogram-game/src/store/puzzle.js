@@ -1,26 +1,25 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+// import { ref } from "vue";
 
-export const usePuzzle = defineStore("nono", () => {
-  const puzzle = ref([
-    [0, 0, 0, 1, 1],
-    [0, 0, 1, 0, 0],
-    [1, 1, 0, 1, 0],
-    [1, 1, 0, 1, 0],
-    [1, 1, 0, 1, 0],
-  ]);
-
-  return {
-    puzzle,
-  };
+export const usePuzzle = defineStore("nono", {
+  state: () => ({
+    puzzle: [
+      [0, 0, 0, 1, 1],
+      [0, 0, 1, 0, 0],
+      [1, 1, 0, 1, 0],
+      [1, 1, 0, 1, 0],
+      [1, 1, 0, 1, 0],
+    ],
+  }),
+  getters: {
+    puzzleWidth: (state) => {
+      return state.puzzle[0].length;
+    },
+    puzzleHeight: (state) => state.puzzle.length,
+  },
+  actions: {
+    puzzleLine(lineIndex) {
+      return this.puzzle[lineIndex];
+    },
+  },
 });
-
-[
-  [0, 0, 0],
-  [0, 1, 1],
-  [1, 1, 0],
-][
-  // yukarida verilen arrayi 90 derece cevirmek
-
-  ([0, 0, 1], [0, 1, 1], [0, 1, 0])
-];
